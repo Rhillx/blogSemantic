@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home Page</title>
+<!--Semantics stylesheet  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="styles/semantic.min.css"> -->
+<!-- My custom stylesheet -->
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <h3 class="ui block header">Simple Blog</h3>
+
+<!--sidebar  -->
+  <div class="ui sidebar inverted vertical menu js-panel">
+      <button class="ui inverted teal button jsedit"></button>
+
+  </div>
+<div class="pusher ">
+ <!-- Site content !-->
+
+
+<!-- menu buttons -->
+    <div class="ui secondary  menu">
+      <a class="active item">Home</a>
+      <a class="item js-create">Create New</a>
+      <a class="item js-edit-delete">Edit/Delete</a>
+    </div>
+
+<!-- rendered content -->
+    <div class="js-blogPost">
+
+    </div>
+
+<!-- Create blog modal -->
+
+  <div class="ui fullscreen modal">
+    <div class="header">New Blog</div>
+    <div class="content">
+      <div class="ui form">
+        <input class="blogtitle js-title" placeholder="Blog Title" /><br />
+        <textarea class="blogbody js-textArea" placeholder="Blog Body"></textarea>
+      </div>
+      </div>
+      <div class="actions">
+        <div class="ui approve green button js-submit">Submit</div>
+        <div class="ui cancel red button">Cancel</div>
+    </div>
+  </div>
+
+<!-- edit/Delete blog modal -->
+
+<!-- <div class="ui small modal">
+  <div class="header">Edit/Delete Blog</div>
+  <div class="content">
+    <div class="ui form">
+      <input class="blogtitle js-blogtitle" placeholder="Blog Title" /><br />
+      <textarea class="blogbody js-blogbody" placeholder="Blog Body"></textarea>
+    </div>
+    </div>
+    <div class="actions">
+      <div class="ui approve green button js-re-submit">Re-Submit</div>
+      <div class="ui cancel red button js-delete">Delete</div>
+  </div>
+</div> -->
+<div class="js-modal-holder"></div>
+
+<!--main content  -->
+<div class="ui centered aligned ten column grid">
+
+</div>
+
+
+</div>
+<!-- pusher end -->
+
+<!-- My custom JS -->
+
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous">
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+  <script src="js/main.js"></script>
+  </body>
+</html>
