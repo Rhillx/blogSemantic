@@ -77,7 +77,7 @@
     container.innerHTML = "";
     $('.js-modal-holder').empty()
 
-    
+
     for(const blogItem of blogItems){
       const div = document.createElement('div')
       div.innerHTML =
@@ -130,50 +130,16 @@
 
         const update = document.querySelector('.js-re-submit')
           update.addEventListener('click', (e)=>{
-
-            const button = document.querySelector('button');
-              button.classList.add('red');
-
-            const title = blogItem.data.title;
-            const blog = blogItem.data.blog;
-            const newTitle = document.querySelector('.js-updatedblogtitle').value;
-            const newBlog= document.querySelector('.js-updatedblogbody').value;
-            const {id} = blogItem;
-
-            if(title !== newTitle){
-              title.replace(title, newTitle)
-            }
-            else{
-              console.log('its the same');
-            }
-
-            if(blog !== newBlog){
-              blog.replace(blog, newBlog)
-            }
-            else{
-              console.log('body is the same');
-            }
-
-            POST('/api/blogs', {
-              title: newTitle,
-              blog: newBlog,
-              when: new Date().getTime() + 9 * 60 * 60 * 1000
-            }).then((data) => {
-              renderToPage(data);
-              renderToList(data);
-            });
-
-            console.log(title);
-            console.log(blog);
-            console.log(newTitle);
-            console.log(newBlog);
-
-            PUT('/api/blog'+ id)
+              const {id} = blogItem;
+              // console.log(document.querySelector('.js-updatedblogbody').value)
+              PUT('/api/blog/'+ id, {
+                blog: document.querySelector('.js-updatedblogbody').value,
+                title: document.querySelector('.js-updatedblogtitle').value
+              })
               .then((data)=>{
-                // console.log('updated!');
-                console.log(blogItem);
-                // renderToPage(data);
-                // renderToList(data);
+                // console.log(blogItem);
+                renderToPage(data);
+                renderToList(data);
                 // window.location.href = '/'
               })
               .catch((e)=>{
@@ -181,7 +147,7 @@
               })
           })
 
-            // $('.js-modal-holder').empty();
+
 
 
 
@@ -260,7 +226,7 @@
       body.removeAttribute('disabled');
       input.value = '';
       body.value = '';
-      window.location.href = '/'
+      window.location.href = '/';
   })
 
 });

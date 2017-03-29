@@ -17,7 +17,6 @@ router.get('/blogs',(request, response, next) => {
 });
 
 
-// post todos
 router.post('/blogs', (request, response, next) => {
 	const requestBody = request.body;
 
@@ -28,17 +27,27 @@ router.post('/blogs', (request, response, next) => {
 
 });
 
-// put todo
 router.put('/blog/:id', (request, response, next) => {
-	const title = blogItem.data.title;
-	const blog = blogItem.data.blog;
-	const id= parseInt(request.params.id, 10);
-	// const dataPayload = request.body;
-
-	BlogPost.updateItem(id, title, blog);
-
+	const id = parseInt(request.params.id, 10);
+	const dataPayload = request.body;
+	Object.keys(dataPayload).forEach((key) => {
+		BlogPost.updateItem(id, 'data.' + key, dataPayload[key]);
+	})
 	next();
-}); // blog
+});
+
+
+// put todo
+// router.put('/blog/:id', (request, response, next) => {
+// 	const title = blogItem.data.title;
+// 	const blog = blogItem.data.blog;
+// 	const id= parseInt(request.params.id, 10);
+// 	// const dataPayload = request.body;
+//
+// 	BlogPost.updateItem(id, title, blog);
+//
+// 	next();
+// }); // blog
 
 // delete blog
 router.delete('/blog/:id', (request, response, next) => {

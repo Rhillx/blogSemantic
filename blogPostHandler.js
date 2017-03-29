@@ -31,12 +31,15 @@ BlogPost.createItem = (itemToCreate) => {
 
 /*
 */
-BlogPost.updateItem = (id, title, blog) => {
-	db.get('blogs')
-		  .find({id, title, blog})
-		  .assign({title: newTitle, blog: newBlog})
+BlogPost.updateItem = (id, key, propertyToUpdate) => {
+	const blog = db.get('blogs')
+		  .find({ id });
+			
+		blog.set(key, propertyToUpdate)
 		  .write()
 }
+
+
 
 BlogPost.deleteItem = (id) => {
 	db.get('blogs')
